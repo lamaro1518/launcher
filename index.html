@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<title>Quick Launch</title>
+
+<style>
+  :root {
+    --overlay: rgba(0, 0, 0, 0.35);
+    --tile-bg: rgba(42, 45, 52, 0.35);
+    --text: #e5e7eb;
+    --sub: #d1d5db;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif;
+  }
+
+  body {
+    background:
+      linear-gradient(var(--overlay), var(--overlay)),
+      url("background.jpg") center / cover no-repeat;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 14px;
+    padding: env(safe-area-inset-top) 14px
+             env(safe-area-inset-bottom) 14px;
+    height: 100vh;
+  }
+
+  a.tile {
+    background: var(--tile-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 22%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.08s ease;
+  }
+
+  a.tile:active {
+    transform: scale(0.92);
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 6px;
+  }
+
+  .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .label {
+    font-size: 11px;
+    color: var(--sub);
+    text-align: center;
+    white-space: nowrap;
+  }
+</style>
+</head>
+
+<body>
+<div class="grid">
+
+  <a class="tile" href="https://wepoll.kr/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=wepoll.kr"></div>
+    <div class="label">위폴</div>
+  </a>
+
+  <a class="tile" href="https://namu.wiki/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=namu.wiki"></div>
+    <div class="label">나무위키</div>
+  </a>
+
+  <a class="tile" href="https://m.naver.com/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=naver.com"></div>
+    <div class="label">네이버</div>
+  </a>
+
+  <a class="tile" href="https://m.megabox.co.kr/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=megabox.co.kr"></div>
+    <div class="label">메가박스</div>
+  </a>
+
+  <a class="tile" href="https://welfare.army.mil.kr/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=army.mil.kr"></div>
+    <div class="label">육군 休드림</div>
+  </a>
+
+  <a class="tile" href="https://m.naver.com/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=naver.com"></div>
+    <div class="label">네이버</div>
+  </a>
+
+  <a class="tile" href="https://www.hyunmoon.co.kr/library/study-library/detail/NjA4NDc0YWQ1ZTQxZWQ5OWI1Y2U5NmIwNjRjOWRhN2M2ZTg0ODAwNzhiZDdlMDRlMjExNDFjODBmZWRmZmQzNQ">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=hyunmoon.co.kr"></div>
+    <div class="label">핵심술기</div>
+  </a>
+
+  <a class="tile" href="https://cauhs.funnbiz.co.kr/login/login.asp">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=funnbiz.co.kr"></div>
+    <div class="label">CAU 복지</div>
+  </a>
+
+  <a class="tile" href="https://m.megabox.co.kr/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=megabox.co.kr"></div>
+    <div class="label">메가박스</div>
+  </a>
+
+  <a class="tile" href="https://www.msdmanuals.com/ko-kr/홈">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=msdmanuals.com"></div>
+    <div class="label">MSD</div>
+  </a>
+
+  <a class="tile" href="https://m.humoruniv.com/main.html">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=humoruniv.com"></div>
+    <div class="label">웃긴대학</div>
+  </a>
+
+  <a class="tile" href="https://arca.live/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=arca.live"></div>
+    <div class="label">아카라이브</div>
+  </a>
+
+  <a class="tile" href="https://dict.naver.com/rukodict/#/main">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=dict.naver.com"></div>
+    <div class="label">러사전</div>
+  </a>
+
+  <a class="tile" href="https://www.vjw.digital.go.jp/main/#/vjwpco001">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=digital.go.jp"></div>
+    <div class="label">Visit JP</div>
+  </a>
+
+  <a class="tile" href="https://m.daum.net/">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=daum.net"></div>
+    <div class="label">Daum</div>
+  </a>
+
+  <a class="tile" href="https://m.bustago.or.kr:444/mobus/btmho/BTMHORN0001.do#">
+    <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=bustago.or.kr"></div>
+    <div class="label">버스타고</div>
+  </a>
+
+</div>
+</body>
+</html>
