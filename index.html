@@ -230,6 +230,7 @@ function updateClock() {
   const time = now.toLocaleTimeString("ko-KR", {
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
   });
 
   const date = now.toLocaleDateString("ko-KR", {
@@ -248,4 +249,5 @@ setInterval(updateClock, 60000);
 
 </body>
 </html>
+
 
