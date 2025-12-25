@@ -7,7 +7,7 @@
 <title>Quick Launch</title>
 
 <!-- pages trigger -->
-      
+
 <style>
   :root {
     --overlay: rgba(0, 0, 0, 0.35);
@@ -35,14 +35,55 @@
       url("background.jpg") center / cover no-repeat;
   }
 
+  /* 전체 레이아웃 */
+  .app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 상단 1/3 */
+  .top {
+    flex: 1;
+    padding-top: env(safe-area-inset-top);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    text-align: center;
+  }
+
+  #clock {
+    font-size: 38px;
+    font-weight: 600;
+  }
+
+  #date {
+    font-size: 15px;
+    opacity: 0.85;
+    margin-top: 4px;
+  }
+
+  /* 캘린더 자리만 확보 */
+  #calendar-placeholder {
+    height: 48px;
+    margin-top: 14px;
+  }
+
+  /* 하단 2/3 */
+  .bottom {
+    flex: 2;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 14px;
-    padding: env(safe-area-inset-top) 14px
-             env(safe-area-inset-bottom) 14px;
-    height: 100vh;
+    padding: 14px;
+    height: 100%;
   }
 
   a.tile {
@@ -84,7 +125,18 @@
 </head>
 
 <body>
-<div class="grid">
+<div class="app">
+
+  <!-- 상단 -->
+  <header class="top">
+    <div id="clock"></div>
+    <div id="date"></div>
+    <div id="calendar-placeholder"></div>
+  </header>
+
+  <!-- 하단 -->
+  <main class="bottom">
+    <div class="grid">
 
   <a class="tile" href="https://wepoll.kr/">
     <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=wepoll.kr"></div>
@@ -123,7 +175,7 @@
 
   <a class="tile" href="https://cauhs.funnbiz.co.kr/login/login.asp">
     <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=funnbiz.co.kr"></div>
-    <div class="label">CAU 복지</div>
+    <div class="label">CAUH 복지</div>
   </a>
 
   <a class="tile" href="https://m.megabox.co.kr/">
@@ -148,12 +200,12 @@
 
   <a class="tile" href="https://dict.naver.com/rukodict/#/main">
     <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=dict.naver.com"></div>
-    <div class="label">러사전</div>
+    <div class="label">노어사전</div>
   </a>
 
   <a class="tile" href="https://www.vjw.digital.go.jp/main/#/vjwpco001">
     <div class="icon"><img src="https://www.google.com/s2/favicons?sz=128&domain=digital.go.jp"></div>
-    <div class="label">Visit JP</div>
+    <div class="label">VJW</div>
   </a>
 
   <a class="tile" href="https://m.daum.net/">
@@ -166,7 +218,33 @@
     <div class="label">버스타고</div>
   </a>
 
+    </div>
+  </main>
+
 </div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+
+  const time = now.toLocaleTimeString("ko-KR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const date = now.toLocaleDateString("ko-KR", {
+    month: "long",
+    day: "numeric",
+    weekday: "short",
+  });
+
+  document.getElementById("clock").textContent = time;
+  document.getElementById("date").textContent = date;
+}
+
+updateClock();
+setInterval(updateClock, 60000);
+</script>
+
 </body>
 </html>
-
